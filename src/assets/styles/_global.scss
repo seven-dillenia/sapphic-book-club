@@ -1,6 +1,14 @@
 %sm-header {
   font-weight: 600;
-  @include rem("font-size", 22);
+  font-size: clamp(1.2rem, 1.5vw, 2rem);
+
+  @include min-breakpoint(1440) {
+    @include rem("font-size", 22);
+  }
+}
+
+%inherit-bg {
+  background-color: inherit;
 }
 
 .--blue-bg {

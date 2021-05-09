@@ -13,4 +13,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onTagClick(element: HTMLElement) {
+    element.classList.toggle('--active');
+  }
 }
