@@ -1,0 +1,45 @@
+%sm-header {
+  font-weight: 600;
+  @include rem("font-size", 22);
+}
+
+.--blue-bg {
+  background-color: $blue;
+}
+.--pink-bg {
+  background-color: $pink;
+}
+.--yellow-bg {
+  background-color: $yellow;
+}
+.--green-bg {
+  background-color: $green;
+}
+.--purple-bg {
+  background-color: $purple;
+}
+
+.--light-pink-bg {
+    background-color: $light-pink;
+}
+.--light-blue-bg {
+    background-color: $light-blue;
+}
+.--jaded-yellow-bg {
+    background-color: $jaded-yellow;
+}
+.--light-green-bg {
+    background-color: $light-green;
+}
+.--light-orange-bg {
+    background-color: $light-orange;
+}
+.--light-yellow-bg {
+    background-color: $light-yellow;
+}
+.--light-turqouise-bg {
+    background-color: $light-turqouise;
+}
+.--light-purple-bg {
+    background-color: $light-purple;
+}

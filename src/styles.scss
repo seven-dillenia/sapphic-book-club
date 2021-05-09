@@ -1,1 +1,189 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import "./assets/styles/mixins/mixin";
+@import "./assets/styles/variables";
+@import "./assets/styles/global";
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: $gray;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  @include rem("gap", 20);
+  @include rem("padding-left", 60);
+  @include rem("padding-right", 60);
+  @include rem("padding-top", 20);
+  width: calc(100% - 120px);
+  max-width: 1980px;
+
+  @include breakpoint(1125) {
+    @include rem("padding-left", 40);
+    @include rem("padding-right", 40);
+    width: calc(100% - 80px);
+  }
+
+  @include breakpoint(810) {
+    @include rem("padding-left", 20);
+    @include rem("padding-right", 20);
+    width: calc(100% - 40px);
+  }
+
+  &__row {
+    display: grid;
+  }
+}
+
+.header {
+  display: grid;
+  @include rem("gap", 5);
+
+  justify-content: center;
+  &__text {
+    text-align: center;
+    font-weight: 600;
+    @include rem("font-size", 36);
+  }
+
+  &__logo {
+    display: flex;
+    &__colour {
+      @include rem("width", 90);
+      @include rem("height", 8);
+
+      @include breakpoint(530) {
+        width: 5vw;
+      }
+    }
+  }
+}
+
+.filter {
+  display: grid;
+  @include rem("gap", 5);
+  &__header {
+    @extend %sm-header;
+  }
+
+  &__genre {
+    display: flex;
+    flex-wrap: wrap;
+    @include rem("gap", 10);
+
+    &__tag {
+      @include rem("font-size", 14);
+      padding: 5px 25px 5px 25px;
+    }
+  }
+}
+
+.books {
+  display: grid;
+  @include rem("gap", 5);
+
+  &__header {
+    @extend %sm-header;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 5.5vw;
+    column-gap: 4vw;
+
+    @include min-breakpoint(1981) {
+      @include rem("row-gap", 100);
+      @include rem("column-gap", 75);
+    }
+
+    @include breakpoint(1320) {
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 6.3vw;
+      column-gap: 5.3vw;
+    }
+
+    @include breakpoint(810) {
+      row-gap: 7vw;
+      column-gap: 3vw;
+    }
+
+    @include breakpoint(730) {
+      row-gap: 3vw;
+      column-gap: 3vw;
+    }
+
+    @include breakpoint(530) {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 5vw;
+      column-gap: 5vw;
+    }
+
+    &__book {
+      display: grid;
+      grid-auto-rows: minmax(min-content, max-content);
+      position: relative;
+
+      &__image {
+        display: flex;
+        justify-content: center;
+        padding: 4vw;
+
+        @include min-breakpoint(1981) {
+          @include rem("padding", 75);
+        }
+
+        @include breakpoint(1320) {
+          padding: 5.3vw;
+        }
+
+        @include breakpoint(530) {
+          padding: 8vw;
+        }
+      }
+
+      &__text {
+        position: absolute;
+        top: calc(100% + 5px);
+        width: 100%;
+
+        @include breakpoint(730) {
+          position: relative;
+          top: 5px;
+        }
+
+        &__title {
+          font-weight: 600;
+          font-size: clamp(0.7rem, 1.03vw, 1.15rem);
+
+          @include breakpoint(1320) {
+            font-size: clamp(0.7rem, 1.37vw, 2rem);
+          }
+
+          @include min-breakpoint(730) {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+
+        &__author {
+          font-weight: 300;
+          font-size: clamp(0.7rem, 1vw, 1rem);
+
+          @include breakpoint(1320) {
+            font-size: clamp(0.7rem, 1.15vw, 1.7rem);
+          }
+        }
+      }
+    }
+  }
+}
+
+.book-img {
+  object-fit: contain;
+}
