@@ -1,0 +1,47 @@
+@import "../../../styles/mixin";
+@import "../../../styles/variables";
+@import "../../../styles/typography";
+
+.books {
+    display: grid;
+    gap: 5px;
+  
+    &__header {
+      @extend %header-m;
+    }
+  
+    &__list {
+      display: grid;
+      gap: $cat-space;
+  
+      @include breakpoint(1980) {
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 1.5vw;
+        column-gap: 4vw;
+      }
+  
+      @include breakpoint(1200) {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 5vw;
+      }
+  
+      @include breakpoint(810) {
+        gap: $cat-space;
+      }
+  
+      @include breakpoint(700) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+  
+      @include breakpoint(425) {
+        gap: $squirrel-space;
+      }
+  
+      // if screen is bigger than 1980
+      @include min-breakpoint(1980) {
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 80px;
+        row-gap: 30px;
+      }    
+    }
+  }

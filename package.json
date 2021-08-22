@@ -7,15 +7,18 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "genapiv2": "sudo npx nswag openapi2tsclient /Template:Angular /InjectionTokenType:InjectionToken /GenerateOptionalParameters:true /Input:https://localhost:5001/swagger/v1/swagger.json /Output:src/app/shared/services/api.v1.service.ts"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.0.2",
+    "@angular/cdk": "^10.2.7",
     "@angular/common": "~10.0.2",
     "@angular/compiler": "~10.0.2",
     "@angular/core": "~10.0.2",
     "@angular/forms": "~10.0.2",
+    "@angular/material": "^10.2.7",
     "@angular/platform-browser": "~10.0.2",
     "@angular/platform-browser-dynamic": "~10.0.2",
     "@angular/router": "~10.0.2",

@@ -1,0 +1,58 @@
+@import "./variables";
+@import "./mixin";
+
+%header-l {
+    font-weight: 600;
+    @include breakpoint($devices-sm) {
+      font-size: $bear;
+    }
+    
+    @include min-breakpoint($devices-sm) {
+      text-align: center;
+      font-size: $elephant;
+    }
+    
+    @include min-breakpoint($devices-m) {
+      font-size: $whale;
+    }
+}
+
+%header-m {
+  font-weight: 600;
+
+  @include breakpoint($devices-sm) {
+    font-size: $wolf;
+  }
+  
+  @include min-breakpoint($devices-sm) {
+    font-size: $bear;
+  }
+  
+  @include min-breakpoint($devices-m) {
+    font-size: $elephant;
+  }
+}
+
+%text {
+  font-size: $mouse;
+
+  @include min-breakpoint($devices-m) {
+    font-size: $squirrel;
+  }
+  
+  @include min-breakpoint($devices-ml) {
+    font-size: $cat;
+  }
+}
+
+%tag {
+  font-size: $mouse;
+  
+  @include min-breakpoint($devices-sm) {
+    font-size: $squirrel;
+  }
+  
+  @include min-breakpoint($devices-m) {
+    font-size: $cat;
+  }
+}

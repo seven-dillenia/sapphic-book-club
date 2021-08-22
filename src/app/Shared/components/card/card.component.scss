@@ -1,0 +1,62 @@
+@import "../../../../styles/typography";
+@import "../../../../styles/variables";
+
+.card {
+  display: grid;
+  grid-auto-rows: minmax(min-content, max-content);
+  position: relative;
+  gap: 5px;
+  cursor: pointer;
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    padding: 18%;
+    overflow: hidden;
+  }
+
+  &__text {
+    overflow: hidden;
+
+    &__title {
+      font-weight: 600;
+      @extend %text;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* number of lines to show */
+      -webkit-box-orient: vertical;
+    }
+    &__author {
+      font-weight: 300;
+      @extend %text;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* number of lines to show */
+      -webkit-box-orient: vertical;
+    }
+  }
+}
+
+.card:hover > .card__image > .book-img {
+  transform: scale(1.1);
+}
+
+.book-img {
+  object-fit: contain;
+  box-shadow: 5px 6px 7px 0px #0000007a;
+  -webkit-backface-visibility: hidden;
+  -ms-transform: translateZ(0); /* IE 9 */
+  -webkit-transform: translateZ(0); /* Chrome, Safari, Opera */
+  transform: translateZ(0);
+
+  filter: none;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='0');
+
+  transition: all 0.3s;
+}

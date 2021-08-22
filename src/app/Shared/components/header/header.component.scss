@@ -1,0 +1,39 @@
+@import "../../../../styles/mixin";
+@import "../../../../styles/variables";
+@import "../../../../styles/typography";
+    
+.header {
+  display: grid;
+  margin: 20px 0;
+  text-align: center;
+  @include rem("gap", 5);
+
+  @include min-breakpoint($devices-sm) {
+    justify-content: center;
+  }
+
+  &__text {
+    display: grid;
+    .--large {
+      @extend %header-l;
+    }
+
+    .--sub {
+      // font-size: 11px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    &__colour {
+      width: 6vw;
+      min-width: 25px;
+      max-width: 100px;
+      @include min-breakpoint($devices-sm) {
+        width: 8vw;
+        min-width: 60px;
+      }
+      @include rem("height", 8);
+    }
+  }
+}

@@ -1,0 +1,26 @@
+/// When the width of the screen is NARROWER than the width specified
+///
+/// @param {number} $size
+///   The breakpoint size, no need to add the 'px' at the end
+@mixin breakpoint($size) {
+  @media only screen and (max-width: $size + px) {
+    @content;
+  }
+}
+
+@mixin breakpoint-height($size) {
+  @media only screen and (max-height: $size + px) {
+    @content;
+  }
+}
+
+/// When the width of the screen is WIDER than the size specified
+/// If you want to break at 425px, set the parameter to 426
+/// Also, no need to add the 'px' at the end of the parameter
+/// @param {size} $base
+///   The breakpoint size
+@mixin min-breakpoint($size) {
+  @media only screen and (min-width: $size + px) {
+    @content;
+  }
+}

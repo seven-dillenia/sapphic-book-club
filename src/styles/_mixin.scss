@@ -1,4 +1,3 @@
 //------ SASS Useful Mixins ---------------------------------------------
-@import "rem";
-@import "breakpoint";
-@import "minbreakpoint";
+@import "./mixins/rem";
+@import "./mixins/breakpoint";

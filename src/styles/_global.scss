@@ -1,9 +1,9 @@
 %sm-header {
   font-weight: 600;
-  font-size: clamp(1.2rem, 1.5vw, 2rem);
+  font-size: clamp($tiny, $medium, $large);
 
   @include min-breakpoint(1440) {
-    @include rem("font-size", 22);
+    font-size: $tiny;
   }
 }
 

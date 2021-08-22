@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card__image" [ngStyle]="{ backgroundColor: book.bookCoverBgColour }">
+    <img
+      class="book-img"
+      width="100%"
+      height="auto"
+      [src]="book.bookCoverLowRes"
+    />
+  </div>
+  <div class="card__text">
+    <div class="card__text__title">{{ book.title }}</div>
+    <div class="card__text__author">
+      <span *ngFor="let author of book.authors">{{ author.authorName }}</span>
+    </div>
+  </div>
+</div>
