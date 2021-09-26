@@ -45,7 +45,7 @@
 }
 
 .book-img {
-  object-fit: contain;
+  object-fit: fill;
   box-shadow: 5px 6px 7px 0px #0000007a;
   -webkit-backface-visibility: hidden;
   -ms-transform: translateZ(0); /* IE 9 */
@@ -57,6 +57,9 @@
   -moz-filter: blur(0px);
   -ms-filter: blur(0px);
   filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='0');
+
+  aspect-ratio: 2/3;
+  width: 100%;
 
   transition: all 0.3s;
 }

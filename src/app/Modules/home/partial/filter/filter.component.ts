@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-filter',
   template: `
-        <div class="filter">
+        <!-- <div class="filter">
       <div class="filter__header">Genres</div>
       <div class="filter__genre">
         <div class="--light-blue-bg" (click)="onTagClick($event.target);">
@@ -55,7 +55,7 @@ import { Component, OnInit } from '@angular/core';
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   `,
   styles: [
   ]

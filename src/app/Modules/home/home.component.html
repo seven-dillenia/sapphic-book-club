@@ -1,6 +1,16 @@
-<div class="books" style="margin-top: 15px">
-  <div class="books__header">Books</div>
+<div class="books">
+  <!-- <div class="books__header">Books</div> -->
   <div class="books__list">
-    <book-card *ngFor="let book of books | async" [book]="book"></book-card>
+    <ng-container *ngIf="!isLoading; else skeletonTemplate">
+      <book-card *ngFor="let book of books" [book]="book"></book-card>
+    </ng-container>
+    <ng-template #skeletonTemplate>
+      <sbc-skeleton *ngFor="let i of skeletonColours" [skeletonColour]="i"></sbc-skeleton>
+    </ng-template>
   </div>
+  <div class="wolf-spacing"></div>
+  <div class="books__reload">
+    <sbc-button text="More Books" type="primary" (onClick)="getMoreBooks()" [isLoading]="isReloadBtnLoading"></sbc-button>
+  </div>
+  <div class="cat-spacing"></div>
 </div>

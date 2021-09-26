@@ -1,0 +1,58 @@
+@import "../../../../styles/variables";
+
+$primary-text-colour: #081a3a;
+
+:host {
+  display: inline-block;
+}
+
+:host ::ng-deep {
+  .mat-spinner {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+  }
+
+  .primary .mat-progress-spinner circle {
+    stroke: $primary-text-colour;
+  }
+}
+
+.btn {
+  position: relative;
+  border-radius: 0px;
+  line-height: 36px;
+  padding: 0 16px;
+  border: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  &__text {
+    transition: all 0.3s;
+    will-change: transform;
+
+    &.--hidden {
+      visibility: hidden;
+    }
+  }
+}
+
+.btn:hover > .btn__text {
+  transform: scale(1.1);
+}
+
+.primary {
+  background-color: $yellow;
+  color: $primary-text-colour;
+}
+
+.secondary {
+  background-color: $blue;
+  color: white;
+}
+
+.disabled {
+  cursor: default;
+  background-color: $disabled-bg;
+  color: $disabled-color;
+}

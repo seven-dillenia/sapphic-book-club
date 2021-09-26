@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Helper } from './Shared/Helper';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +12,25 @@ import { Component } from '@angular/core';
         <app-filter></app-filter>
       </div> -->
       <main>
-      <router-outlet></router-outlet>
-
+        <router-outlet></router-outlet>
       </main>
-      <div class="sapphic__row container__row"></div>
+
+      <!-- <footer class="sapphic__row container__row" style="justify-content: center;">
+      </footer> -->
     </div>
   `,
   styles: []
 })
 export class AppComponent {
   title = 'sapphics';
+
+  constructor() {
+
+  }
+
+  async getMoreBooks() {
+    console.log("delayying......")
+    await Helper.delay(2000);
+    console.log("done")
+  }
 }

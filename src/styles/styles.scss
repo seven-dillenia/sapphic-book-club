@@ -39,17 +39,19 @@ $sapphics-theme: mat-light-theme((
 @import "./variables";
 @import "./global";
 @import "./typography";
+@import "~animate.css/animate.min";
 
 html,
 body {
   font-family: "Poppins", sans-serif;
   background-color: $gray;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
 }
 
+button {
+  font-family: "Poppins", sans-serif;
 
+}
 
 .container {
   display: grid;
@@ -57,6 +59,7 @@ body {
   @include rem("padding-left", 60);
   @include rem("padding-right", 60);
   @include rem("padding-top", 20);
+  @include rem("padding-bottom", 20);
   width: calc(100% - 120px);
   max-width: 1980px;
 
@@ -129,3 +132,18 @@ body {
     }
   }
 }
+
+.spacing {
+  height: $elephant-space;
+}
+
+.cat-spacing {
+  height: $cat-space;
+}
+
+.wolf-spacing {
+  height: $wolf-space;
+}
+
+
+// Override Angular Material

@@ -1,0 +1,41 @@
+@mixin skeleton-bg($colour) {
+  background: linear-gradient(0.25turn, transparent, #fff, transparent),
+    linear-gradient($colour, $colour);
+  background-repeat: no-repeat;
+  background-size: 100% 100%, 100% 100%;
+  background-position: -300px 0, 0 0;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position: 300px 0, 0 0;
+  }
+}
+
+.skeleton {
+  width: 100%;
+  gap: 5px;
+  &__image {
+    padding: 18%;
+    background-color: #ffc088;
+    &__child {
+      @include skeleton-bg(#e3e3e3);
+      aspect-ratio: 2/3;
+      max-width: 100%;
+    }
+  }
+  &__text {
+    height: 25px;
+    margin-top: 5px;
+    @include skeleton-bg(#e3e3e3);
+  }
+
+  .--short-width {
+    width: 50%;
+  }
+
+  .--medium-width {
+    width: 80%;
+  }
+}

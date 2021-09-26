@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PublicBookModel } from 'src/app/Shared/Services/api.v1.service';
+import { AuthorModel, PublicBookModel } from 'src/app/Shared/Services/api.v1.service';
 
 @Component({
   selector: 'book-card',
@@ -8,10 +8,12 @@ import { PublicBookModel } from 'src/app/Shared/Services/api.v1.service';
 })
 export class CardComponent implements OnInit {
   @Input() book: PublicBookModel;
-
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  authorNames(authorList: AuthorModel[]) {
+    return authorList.map(a => a.authorName).join(", ");
+  }
 }
