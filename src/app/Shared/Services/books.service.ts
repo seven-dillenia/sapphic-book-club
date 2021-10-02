@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Observer, of, Subject } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { BooksClient, GenreModel, IGenreModel, IUpdateBookRequestModel, PublicBookModel, UpdateBookRequestModel, UpdateBooksResponseModel } from './api.v1.service';
 
 @Injectable({
@@ -27,9 +28,8 @@ export class BooksService {
   _books$: Observable<PublicBookModel[]>;
 
   constructor(private http: HttpClient) {
-    this.api = new BooksClient(http, "https://localhost:5001");
-
-    // this._books$.pipe(startWith([]));
+    const apiUrl = environment.api;
+    this.api = new BooksClient(http, apiUrl);
   }
 
   
