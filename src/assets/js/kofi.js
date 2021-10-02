@@ -222,6 +222,7 @@ var kofiWidgetOverlayFloatingChatBuilder =
         "floating-chat-kofi-popup-iframe-notice"
       )[0].style.display = "none";
     }
+    var isFirst = true;
     function insertPopupHtmlIntoBody(donateButton, selectors, parentElementId) {
       var popupId =
         _configManager.getValue(_myType, "cssId") + `-${selectors.popupId}`;
@@ -243,6 +244,13 @@ var kofiWidgetOverlayFloatingChatBuilder =
       handleLink.setAttribute("href", "https://" + noticeText);
       handleLink.setAttribute("target", "_blank");
       handleLink.setAttribute("class", "kfds-text-is-link-dark");
+
+      if(isFirst === true) {
+        handleLink.setAttribute("class", "desktop-link");
+        isFirst = false;
+      } else {
+        handleLink.setAttribute("class", "mobile-link");
+      }
       linkText = document.createTextNode(noticeText);
       handleLink.appendChild(linkText);
       notice.appendChild(handleLink);

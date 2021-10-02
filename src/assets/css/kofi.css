@@ -192,6 +192,8 @@ div.floating-chat-kofi-popup-iframe-container > iframe {
   font-family: nunito, Helvetica, Arial, sans-serif;
   z-index: 999;
   transition: all 0.3s ease 0s;
+  /* left: -200px; */
+  /* position: fixed; */
 }
 .floating-chat-kofi-popup-iframe-container {
   position: relative;
@@ -310,6 +312,22 @@ div.floating-chat-kofi-popup-iframe-container-mobi > iframe {
   }
 }
 
-#kofi-widget-overlay-678c3f40-417d-438b-b70d-5469a7ba4aa9-kofi-popup-iframe-mobi {
+.desktop-link {
+  display: block;
+  color: black;
+}
+
+.mobile-link {
   display: none;
+  color: black;
+}
+
+@media only screen and (max-device-width: 750px) {
+  .desktop-link {
+    display: none;
+  }
+
+  .mobile-link {
+    display: block;
+  }
 }
