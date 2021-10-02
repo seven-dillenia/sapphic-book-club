@@ -210,6 +210,7 @@ div.floating-chat-kofi-popup-iframe-container-mobi > iframe {
   -webkit-text-decoration-color: transparent !important;
   text-decoration-color: transparent !important;
   transition: all ease-in 0.1s;
+  /* display: none; */
 }
 .floating-chat-kofi-popup-iframe-notice-mobi > .kfds-text-is-link-dark:hover,
 .floating-chat-kofi-popup-iframe-notice-mobi > .kfds-text-is-link-dark:focus,
@@ -307,4 +308,8 @@ div.floating-chat-kofi-popup-iframe-container-mobi > iframe {
   .floatingchat-container-wrap-mobi {
     display: none;
   }
+}
+
+#kofi-widget-overlay-678c3f40-417d-438b-b70d-5469a7ba4aa9-kofi-popup-iframe-mobi {
+  display: none;
 }
