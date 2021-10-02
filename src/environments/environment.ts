@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api: "https://localhost:5001",
+  api: "https://api-testing-sbc.azurewebsites.net",
+  appVersion: require('../../package.json').version + ' --dev'
 };
 
 /*
