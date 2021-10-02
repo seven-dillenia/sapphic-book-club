@@ -1,0 +1,71 @@
+@import "../../../../styles/variables";
+.footer {
+  text-align: center;
+  font-weight: 300;
+  font-size: 12px;
+  margin-top: $whale-space;
+  margin-bottom: $cat-space;
+
+  &__line {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-bottom: $cat-space;
+    justify-content: center;
+    height: 2px;
+  }
+
+  &__links {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto;
+    gap: $squirrel-space;
+    margin-bottom: $squirrel-space;
+    &__item {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      color: #ffefb3;
+
+      &__icon {
+        height: 25px;
+        transition: all 0.3s;
+      }
+    }
+
+    .--style1 {
+      background-color: $pink;
+    }
+
+    .--style2 {
+      background-color: $blue;
+    }
+  }
+}
+
+.footer__links__item:hover > .footer__links__item__icon {
+  transform: scale(1.15);
+}
+
+.tumblr {
+  height: 23px;
+  width: 30px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #ffefb3;
+  -webkit-mask: url(../../../../assets/images/tumblr.svg) no-repeat center;
+  mask: url(../../../../assets/images/tumblr.svg) no-repeat center;
+}
+
+a {
+  text-decoration: none;
+  color: #8a1d9d;
+  transition: all 0.3s;
+}
+
+a:hover {
+  color: #f36d2e;
+}

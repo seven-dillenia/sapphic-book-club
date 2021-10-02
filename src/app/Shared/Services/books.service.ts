@@ -38,7 +38,6 @@ export class BooksService {
   }
   
   setBooks(value$: Observable<PublicBookModel[]>) {
-    console.log("setting....")
     // this._books$.next()
 
     // this.updateObservable(value$);
@@ -53,7 +52,6 @@ export class BooksService {
 
 
   getBooks(pageIndex: number, pageSize: number) {
-    console.log("calling...")
     // const key = keywords == null ? '' : keywords
     // return this.api.getBooks(key, pageIndex, pageSize);
     const genres: IGenreModel = {genreName: "Science Fiction", id: 1}

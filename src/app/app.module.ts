@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 // Angular Material
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
 
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 // Components
@@ -20,6 +21,7 @@ import { FilterComponent } from './modules/home/partial/filter/filter.component'
 import { CardComponent } from './shared/components/card/card.component';
 import { SbcButtonComponent } from './shared/components/sbc-button/sbc-button.component';
 import { SkeletonComponent } from './shared/components/skeleton/skeleton.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,19 +31,21 @@ import { SkeletonComponent } from './shared/components/skeleton/skeleton.compone
     FilterComponent,
     CardComponent,
     SbcButtonComponent,
-    SkeletonComponent
+    SkeletonComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    NgxSkeletonLoaderModule,
     // Material
     MatButtonModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatIconModule
 
-    NgxSkeletonLoaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

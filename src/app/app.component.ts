@@ -14,10 +14,13 @@ import { Helper } from './Shared/Helper';
       <main>
         <router-outlet></router-outlet>
       </main>
-
+      
       <!-- <footer class="sapphic__row container__row" style="justify-content: center;">
       </footer> -->
     </div>
+    <footer>
+      <sbc-footer></sbc-footer>
+    </footer>
   `,
   styles: []
 })
@@ -26,11 +29,5 @@ export class AppComponent {
 
   constructor() {
 
-  }
-
-  async getMoreBooks() {
-    console.log("delayying......")
-    await Helper.delay(2000);
-    console.log("done")
   }
 }
