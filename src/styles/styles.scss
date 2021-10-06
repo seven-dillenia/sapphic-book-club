@@ -40,6 +40,7 @@ $sapphics-theme: mat-light-theme((
 @import "./global";
 @import "./typography";
 @import "~animate.css/animate.min";
+@import "./components/dialog";
 
 html,
 body {

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PublicBookModel } from 'src/app/Shared/Services/api.v1.service';
 import { BooksService } from '../../Shared/Services/books.service';
+import { NoticeDialog } from './partial/notice-dialog/noticeDialog.component';
 
 @Component({
   selector: 'app-home',
@@ -44,14 +46,19 @@ export class HomeComponent implements OnInit {
   public isReloadBtnLoading: boolean = false;
   public isError: boolean = false;
 
-  constructor(private bookService: BooksService, private snackbar: MatSnackBar) { }
+  constructor(
+    private bookService: BooksService,
+    private snackbar: MatSnackBar,
+    public dialog: MatDialog) { }
+
   ngOnInit(): void {
-    this.skeletonColours = this.allcolours
-      .map((value) => ({ value, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ value }) => value)
-      .slice(0, 12);
-    this.loadBooks();
+    // this.skeletonColours = this.allcolours
+    //   .map((value) => ({ value, sort: Math.random() }))
+    //   .sort((a, b) => a.sort - b.sort)
+    //   .map(({ value }) => value)
+    //   .slice(0, 12);
+    // this.loadBooks();
+    this.openDialog();
   }
 
   public counter(i: number): number[] {
@@ -61,7 +68,7 @@ export class HomeComponent implements OnInit {
   public getMoreBooks() {
     this.isReloadBtnLoading = true;
     let body = document.getElementsByClassName('header__logo')[0];
-    body.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest" });
+    body.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 
     this.loadBooks();
   }
@@ -83,5 +90,15 @@ export class HomeComponent implements OnInit {
         this.snackbar.open("Sorry! We've bumped into an error :(", "Close");
       })
     )
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(NoticeDialog, {
+      maxWidth: '600px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }

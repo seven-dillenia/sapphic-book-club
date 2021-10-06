@@ -1,0 +1,19 @@
+@import "../../../../../styles/components/dialog";
+
+:host ::ng-deep {
+  .mat-dialog-container {
+    @extend %dialog;
+    color: red;
+  }
+}
+
+.dialog {
+    display: grid;
+    gap: 15px;
+    &__body {
+        display: grid;
+    }
+    &__footer {
+        text-align: center;
+    }
+}
