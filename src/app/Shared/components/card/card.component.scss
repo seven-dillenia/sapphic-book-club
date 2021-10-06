@@ -1,6 +1,21 @@
 @import "../../../../styles/typography";
 @import "../../../../styles/variables";
 
+@mixin skeleton-bg($colour) {
+  background: linear-gradient(0.25turn, transparent, #fff, transparent),
+    linear-gradient($colour, $colour);
+  background-repeat: no-repeat;
+  background-size: 100% 100%, 100% 100%;
+  background-position: -300px 0, 0 0;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position: 300px 0, 0 0;
+  }
+}
+
 .card {
   display: grid;
   grid-auto-rows: minmax(min-content, max-content);
@@ -62,4 +77,12 @@
   width: 100%;
 
   transition: all 0.3s;
+}
+
+.skeleton-img {
+  @include skeleton-bg(#e3e3e3);
+  width: 100%;
+  height:0;         // set the ratio for users who are on mobile or safari
+  padding-top:150%; // set the ratio for users who are on mobile or safari
+  aspect-ratio: 2/3;
 }

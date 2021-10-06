@@ -73,7 +73,6 @@ export class HomeComponent implements OnInit {
 
     this.bookService.books.subscribe(
       ((data) => {
-        console.log(data);
         this.books = data;
         this.isLoading = false;
         this.isReloadBtnLoading = false;
