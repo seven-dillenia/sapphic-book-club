@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { PublicBookModel } from 'src/app/Shared/Services/api.v1.service';
-import { BooksService } from '../../Shared/Services/books.service';
+import { PublicBookModel } from 'src/app/shared/services/api.v1.service';
+import { TypeUtil } from 'src/app/shared/utils/type-utils';
+import { BooksService } from '../../shared/services/books.service';
 import { NoticeDialog } from './partial/notice-dialog/noticeDialog.component';
 
 @Component({
@@ -48,17 +49,15 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private bookService: BooksService,
-    private snackbar: MatSnackBar,
-    public dialog: MatDialog) { }
+    private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
-    // this.skeletonColours = this.allcolours
-    //   .map((value) => ({ value, sort: Math.random() }))
-    //   .sort((a, b) => a.sort - b.sort)
-    //   .map(({ value }) => value)
-    //   .slice(0, 12);
-    // this.loadBooks();
-    this.openDialog();
+    this.skeletonColours = this.allcolours
+      .map((value) => ({ value, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ value }) => value)
+      .slice(0, 12);
+    this.loadBooks();
   }
 
   public counter(i: number): number[] {
@@ -91,14 +90,5 @@ export class HomeComponent implements OnInit {
       })
     )
   }
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(NoticeDialog, {
-      maxWidth: '600px',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
 }
+

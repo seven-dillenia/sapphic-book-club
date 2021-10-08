@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { AuthorModel, PublicBookModel } from 'src/app/Shared/Services/api.v1.service';
-import { CoversService } from 'src/app/Shared/Services/covers.service';
+import { AuthorModel, PublicBookModel } from 'src/app/shared/services/api.v1.service';
+import { CoversService } from 'src/app/shared/services/covers.service';
 
 @Component({
   selector: 'book-card',

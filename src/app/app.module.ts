@@ -13,20 +13,24 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 
 // Services
-import { BooksService } from './Shared/Services/books.service';
-import { CoversService } from './Shared/Services/covers.service';
-import { AuthorClient, BooksClient, GenreClient } from './Shared/Services/api.v1.service';
+import { BooksService } from './shared/services/books.service';
+import { CoversService } from './shared/services/covers.service';
+import { AuthorClient, BooksClient, GenreClient } from './shared/services/api.v1.service';
 
 // Components
 import { AppComponent } from './app.component';
-import { HomeComponent } from './Modules/home/home.component';
+import { HomeComponent } from './modules/home/home.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FilterComponent } from './modules/home/partial/filter/filter.component';
 import { CardComponent } from './shared/components/card/card.component';
 import { SbcButtonComponent } from './shared/components/sbc-button/sbc-button.component';
 import { SkeletonComponent } from './shared/components/skeleton/skeleton.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
-import { NoticeDialog } from './Modules/home/partial/notice-dialog/noticeDialog.component';
+import { NoticeDialog } from './modules/home/partial/notice-dialog/noticeDialog.component';
+
+// Helpers
+import { Helper } from './shared/utils/helper';
+import { TypeUtil } from './shared/utils/type-utils';
 
 @NgModule({
   declarations: [
@@ -51,9 +55,17 @@ import { NoticeDialog } from './Modules/home/partial/notice-dialog/noticeDialog.
     MatProgressSpinnerModule,
     MatSnackBarModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
   ],
-  providers: [BooksService, AuthorClient, BooksClient, GenreClient, CoversService],
+  providers: [
+    BooksService,
+    AuthorClient,
+    BooksClient,
+    GenreClient,
+    CoversService,
+    Helper,
+    TypeUtil
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

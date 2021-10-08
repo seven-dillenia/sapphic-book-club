@@ -1,19 +1,115 @@
 @import "../../../../../styles/components/dialog";
 
-:host ::ng-deep {
-  .mat-dialog-container {
-    @extend %dialog;
-    color: red;
+.dialog {
+  display: grid;
+  gap: 20px;
+  &__body {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+
+    &__item {
+      display: flex;
+    }
+  }
+  &__footer {
+    text-align: center;
   }
 }
 
-.dialog {
-    display: grid;
-    gap: 15px;
-    &__body {
-        display: grid;
-    }
-    &__footer {
-        text-align: center;
-    }
+.hi-wrapper {
+  text-align: center;
+  &__hi {
+    font-size: 20px;
+    transform: rotate(0deg);
+    display: inline-block;
+    animation: move 15s infinite linear forwards;
+    -webkit-mask-image: url("../../../../../assets/images/hi-2.png");
+    mask-image: url("../../../../../assets/images/hi-2.png");
+    width: 170px;
+    height: 110px;
+    background-image: url("../../../../../assets/images/rainbow-2.png");
+    background-size: 500px 63px;
+    mask-repeat: no-repeat round;
+  }
+}
+
+.cut {
+  display: inline-block;
+  animation: move 50s infinite linear forwards;
+  -webkit-mask-image: url("../../../../../assets/images/scissors.svg");
+  mask-image: url("../../../../../assets/images/scissors.svg");
+  background-image: url("../../../../../assets/images/rainbow-2.png");
+  width: 25px;
+  height: 30px;
+  background-size: 150px 63px;
+}
+
+.bone-joke {
+  display: flex;
+  justify-content: center;
+}
+.icon {
+  margin-top: -5px;
+  padding-left: 5px;
+}
+
+.bone {
+  display: inline-block;
+  animation: move 50s infinite linear forwards;
+  -webkit-mask-image: url("../../../../../assets/images/bone.svg");
+  mask-image: url("../../../../../assets/images/bone.svg");
+  background-image: url("../../../../../assets/images/rainbow-2.png");
+  width: 25px;
+  height: 25px;
+  background-size: 150px 63px;
+}
+
+.sign-off {
+  font-size: smaller;
+  justify-content: flex-end;
+}
+
+.--rotate-180 {
+  transform: rotate(180deg);
+}
+
+.progress {
+  display: grid;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.here {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  &__text {
+    line-height: 1.9;
+  }
+}
+
+.link {
+  text-decoration: none;
+  &__text {
+    border-image: url("../../../../../assets/images/rainbow-2.png") 40 stretch;
+    border-bottom: 3px solid transparent;
+    color: black;
+    display: inline-block;
+    height: 20px;
+    transition: all 0.3s;
+  }
+
+  &__text:hover {
+    border-image-slice: 140;
+  }
+}
+
+.link:hover {
+  animation: move 50s infinite linear forwards;
+}
+
+.--align-start {
+  justify-content: center;
 }
