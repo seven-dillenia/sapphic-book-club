@@ -12,14 +12,19 @@
     justify-content: center;
   }
 
+  @include breakpoint($devices-sm) {
+    margin-bottom: 0px;
+  }
+
   &__text {
     display: grid;
     .--large {
       @extend %header-l;
     }
 
-    .--sub {
-      // font-size: 11px;
+    @include breakpoint($devices-sm) {
+      text-align: left;
+      justify-content: flex-start;
     }
   }
 
