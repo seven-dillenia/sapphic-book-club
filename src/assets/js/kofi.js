@@ -223,6 +223,7 @@ var kofiWidgetOverlayFloatingChatBuilder =
         "floating-chat-kofi-popup-iframe-notice"
       )[0].style.display = "none";
     }
+    var isFirst = true;
     function insertPopupHtmlIntoBody(donateButton, selectors, parentElementId) {
       var popupId =
         _configManager.getValue(_myType, "cssId") + `-${selectors.popupId}`;
