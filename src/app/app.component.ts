@@ -17,9 +17,9 @@ declare let gtag;
       <!-- <div class="sapphic__row container__row">
         <app-filter></app-filter>
       </div> -->
-      <!-- <main>
+      <main>
         <router-outlet></router-outlet>
-      </main> -->
+      </main>
     </div>
     <footer>
       <sbc-footer></sbc-footer>
@@ -29,14 +29,14 @@ declare let gtag;
 })
 export class AppComponent {
   constructor(public dialog: MatDialog, private router: Router) {
-    const navEndEvents = router.events.pipe(
-      filter((evn) => evn instanceof NavigationEnd)
-    );
-    navEndEvents.subscribe((env: NavigationEnd) => {
-      gtag("config", "G-C2RMTTQ2ZG", {
-        'page_path': env.urlAfterRedirects
-      });
-    })
+    // const navEndEvents = router.events.pipe(
+    //   filter((evn) => evn instanceof NavigationEnd)
+    // );
+    // navEndEvents.subscribe((env: NavigationEnd) => {
+    //   gtag(, {
+    //     'page_path': env.urlAfterRedirects
+    //   });
+    // })
     this.openNoticeDialog();
   }
 
