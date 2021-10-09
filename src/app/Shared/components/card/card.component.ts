@@ -10,39 +10,23 @@ import { CoversService } from 'src/app/shared/services/covers.service';
 })
 export class CardComponent implements OnInit {
   @Input() book: PublicBookModel;
+  authorNames: string = '';
   isLoadingImage: boolean = true;
   coverImageBlobUrl;
   
   constructor(private coverService: CoversService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+    this.getCover();
+    this.authorNames = this.book.authors?.map(a => a.authorName)?.join(', ');
+  }
+
+  // Get grabbing the image from imgur, and we will show skeleton image until we got the actual image
+  getCover() {
     this.coverService.getCover(this.book.bookCoverLowRes).subscribe(async (data) => {
       let unsafeImageUrl = URL.createObjectURL(data);
       this.coverImageBlobUrl = this.sanitizer.bypassSecurityTrustUrl(unsafeImageUrl);
-
-      // let objectURL = URL.createObjectURL(data);       
-      // this.image = this.sanitizer.bypassSecurityTrustUrl(objectURL);
-
-      // let test = await this.blobToImage(data);
-      // this.coverImageBlobUrl = test;
-
       this.isLoadingImage = false;
-    })
-  }
-
-  blobToImage = (blob) => {
-    return new Promise(resolve => {
-      const url = URL.createObjectURL(blob)
-      let img = new Image()
-      img.onload = () => {
-        URL.revokeObjectURL(url)
-        resolve(img)
-      }
-      img.src = url
-    })
-  }
-
-  authorNames(authorList: AuthorModel[]) {
-    return authorList.map(a => a.authorName).join(", ");
+    });
   }
 }
