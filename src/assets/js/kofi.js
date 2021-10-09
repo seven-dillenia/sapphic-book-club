@@ -14,6 +14,7 @@ const kofiWidgetOverlayConfig = {
   "floating-chat.stylesheets":
     '["https://fonts.googleapis.com/css?family=Nunito:400,700,800&display=swap"]',
 };
+var noticeTextCount = 0; // Lee's addition
 var kofiWidgetOverlayFloatingChatBuilder =
   kofiWidgetOverlayFloatingChatBuilder ||
   function (config, _utils) {
@@ -242,7 +243,16 @@ var kofiWidgetOverlayFloatingChatBuilder =
       handleLink = document.createElement("a");
       handleLink.setAttribute("href", "https://" + noticeText);
       handleLink.setAttribute("target", "_blank");
-      handleLink.setAttribute("class", "kfds-text-is-link-dark");
+      
+      // in desktop width, the mobile version's text disappears
+      // in the mobile width, the desktop version's text disappears
+      // while the text disppears, the width is still that and it fucking sucks
+      if(noticeTextCount % 2 == 0) {
+        handleLink.setAttribute("class", "kfds-text-is-link-dark link-desktop");
+      } else {
+        handleLink.setAttribute("class", "kfds-text-is-link-dark link-mobile");
+      }
+      noticeTextCount++;
       linkText = document.createTextNode(noticeText);
       handleLink.appendChild(linkText);
       notice.appendChild(handleLink);

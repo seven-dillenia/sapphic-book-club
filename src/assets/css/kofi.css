@@ -307,4 +307,33 @@ div.floating-chat-kofi-popup-iframe-container-mobi > iframe {
   .floatingchat-container-wrap-mobi {
     display: none;
   }
+
+  .link-desktop {
+
+  }
 }
+
+/* .floating-chat-kofi-popup-iframe-mobi {
+  overflow-x: hidden;
+} */
+
+.floating-chat-kofi-popup-iframe {
+  /* overflow-x: hidden; */
+}
+
+
+@media only screen and (max-device-width: 1023px) {
+  .link-desktop {
+    display: none;
+  }
+}
+@media only screen and (min-device-width: 1024px) {
+  .link-mobile {
+    display: none;
+  }
+}
+
+
+/* .link-mobile {
+  display: none;;
+} */
