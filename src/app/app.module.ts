@@ -31,6 +31,7 @@ import { NoticeDialog } from './modules/home/partial/notice-dialog/noticeDialog.
 // Helpers
 import { Helper } from './shared/utils/helper';
 import { TypeUtil } from './shared/utils/type-utils';
+import { LinkComponent } from './shared/components/link/link.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { TypeUtil } from './shared/utils/type-utils';
     SbcButtonComponent,
     SkeletonComponent,
     FooterComponent,
-    NoticeDialog
+    NoticeDialog,
+    LinkComponent,
   ],
   imports: [
     BrowserModule,

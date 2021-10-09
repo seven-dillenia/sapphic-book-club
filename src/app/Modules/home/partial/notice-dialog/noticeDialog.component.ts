@@ -1,18 +1,15 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from "@angular/core";
+import { MatDialogRef } from "@angular/material/dialog";
 
 @Component({
-  selector: 'notice-dialog',
+  selector: "notice-dialog",
   templateUrl: "noticeDialog.component.html",
-  styleUrls: ["noticeDialog.component.scss"]
+  styleUrls: ["noticeDialog.component.scss"],
 })
 export class NoticeDialog implements OnInit {
-  constructor(
-    public dialogRef: MatDialogRef<NoticeDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(public dialogRef: MatDialogRef<NoticeDialog>) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onNoClick(): void {
     this.dialogRef.close();

@@ -1,0 +1,20 @@
+@import "../../../../styles/variables";
+
+.link {
+  text-decoration: none;
+  &__text {
+    border-image: url("../../../../assets/images/rainbow-2.png") 40 stretch;
+    border-bottom: 3px solid transparent;
+    color: $black;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+
+  &__text:hover {
+    border-image-slice: 140;
+  }
+}
+
+.link:hover {
+  animation: move 50s infinite linear forwards;
+}
