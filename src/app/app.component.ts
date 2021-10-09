@@ -29,14 +29,6 @@ declare let gtag;
 })
 export class AppComponent {
   constructor(public dialog: MatDialog, private router: Router) {
-    // const navEndEvents = router.events.pipe(
-    //   filter((evn) => evn instanceof NavigationEnd)
-    // );
-    // navEndEvents.subscribe((env: NavigationEnd) => {
-    //   gtag(, {
-    //     'page_path': env.urlAfterRedirects
-    //   });
-    // })
     this.openNoticeDialog();
   }
 

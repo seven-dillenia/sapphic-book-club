@@ -11,6 +11,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // Services
 import { BooksService } from './shared/services/books.service';
@@ -58,6 +59,7 @@ import { LinkComponent } from './shared/components/link/link.component';
     MatSnackBarModule,
     MatIconModule,
     MatDialogModule,
+    MatTooltipModule
   ],
   providers: [
     BooksService,
