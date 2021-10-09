@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { PublicBookModel } from 'src/app/Shared/Services/api.v1.service';
-import { BooksService } from '../../Shared/Services/books.service';
+import { PublicBookModel } from 'src/app/shared/services/api.v1.service';
+import { TypeUtil } from 'src/app/shared/utils/type-utils';
+import { BooksService } from '../../shared/services/books.service';
+import { NoticeDialog } from './partial/notice-dialog/noticeDialog.component';
 
 @Component({
   selector: 'app-home',
@@ -44,7 +47,10 @@ export class HomeComponent implements OnInit {
   public isReloadBtnLoading: boolean = false;
   public isError: boolean = false;
 
-  constructor(private bookService: BooksService, private snackbar: MatSnackBar) { }
+  constructor(
+    private bookService: BooksService,
+    private snackbar: MatSnackBar) { }
+
   ngOnInit(): void {
     this.skeletonColours = this.allcolours
       .map((value) => ({ value, sort: Math.random() }))
@@ -61,7 +67,7 @@ export class HomeComponent implements OnInit {
   public getMoreBooks() {
     this.isReloadBtnLoading = true;
     let body = document.getElementsByClassName('header__logo')[0];
-    body.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest" });
+    body.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 
     this.loadBooks();
   }
@@ -73,7 +79,6 @@ export class HomeComponent implements OnInit {
 
     this.bookService.books.subscribe(
       ((data) => {
-        console.log(data);
         this.books = data;
         this.isLoading = false;
         this.isReloadBtnLoading = false;
@@ -86,3 +91,4 @@ export class HomeComponent implements OnInit {
     )
   }
 }
+

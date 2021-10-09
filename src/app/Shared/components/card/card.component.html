@@ -3,10 +3,10 @@
     class="card__image"
     [ngStyle]="{ backgroundColor: book.bookCoverBgColour }"
   >
-    <img
-      class="book-img"
-      [src]="book.bookCoverLowRes"
-    />
+    <div *ngIf="isLoadingImage" class="book-imag skeleton-img"></div>
+    <img *ngIf="!isLoadingImage" class="book-img" [src]="coverImageBlobUrl" />
+    <!-- <img class="book-img" [src]="book.bookCoverLowRes" loading="lazy" /> -->
+
   </div>
   <div class="card__text">
     <div class="card__text__title">{{ book.title }}</div>

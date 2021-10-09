@@ -310,24 +310,28 @@ div.floating-chat-kofi-popup-iframe-container-mobi > iframe {
   .floatingchat-container-wrap-mobi {
     display: none;
   }
+
+  .link-desktop {
+
+  }
 }
 
-.desktop-link {
-  display: block;
-  color: black;
+/* .floating-chat-kofi-popup-iframe-mobi {
+  overflow-x: hidden;
+} */
+
+.floating-chat-kofi-popup-iframe {
+  /* overflow-x: hidden; */
 }
 
-.mobile-link {
-  display: none;
-  color: black;
-}
 
-@media only screen and (max-device-width: 750px) {
-  .desktop-link {
+@media only screen and (max-device-width: 1023px) {
+  .link-desktop {
     display: none;
   }
-
-  .mobile-link {
-    display: block;
+}
+@media only screen and (min-device-width: 1024px) {
+  .link-mobile {
+    display: none;
   }
 }

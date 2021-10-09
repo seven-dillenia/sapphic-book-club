@@ -38,15 +38,8 @@ export class BooksService {
   }
   
   setBooks(value$: Observable<PublicBookModel[]>) {
-    // this._books$.next()
-
-    // this.updateObservable(value$);
     this._books$ = value$;
-    // console.log(this._books$);
   }
-  // public get books() : PublicBookModel[] {
-  //   return this._books;
-  // }
   
 
 
