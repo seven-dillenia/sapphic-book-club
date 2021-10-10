@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 import { PublicBookModel } from 'src/app/shared/services/api.v1.service';
+import { SeoService } from 'src/app/shared/services/seo.service';
 import { TypeUtil } from 'src/app/shared/utils/type-utils';
 import { BooksService } from '../../shared/services/books.service';
 import { NoticeDialog } from './partial/notice-dialog/noticeDialog.component';
@@ -48,10 +50,18 @@ export class HomeComponent implements OnInit {
   public isError: boolean = false;
 
   constructor(
+    private seoService: SeoService,
+    private route: ActivatedRoute,
     private bookService: BooksService,
     private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
+    const { meta } = this.route.snapshot.data;
+    this.seoService.updateTitle(meta.title);
+    this.seoService.updateDescription(meta.description);
+    this.seoService.updateKeywords(meta.keywords);
+
+
     this.skeletonColours = this.allcolours
       .map((value) => ({ value, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)

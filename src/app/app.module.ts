@@ -16,6 +16,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 // Services
 import { BooksService } from './shared/services/books.service';
 import { CoversService } from './shared/services/covers.service';
+import { SeoService } from './shared/services/seo.service';
 import { AuthorClient, BooksClient, GenreClient } from './shared/services/api.v1.service';
 
 // Components
@@ -68,7 +69,8 @@ import { LinkComponent } from './shared/components/link/link.component';
     GenreClient,
     CoversService,
     Helper,
-    TypeUtil
+    TypeUtil,
+    SeoService,
   ],
   bootstrap: [AppComponent]
 })
