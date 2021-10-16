@@ -572,8 +572,10 @@ export class BookModel implements IBookModel {
     rating?: number | undefined;
     totalReviews?: number | undefined;
     bookCoverHighResUrl?: string | undefined;
-    bookCoverUrl?: string | undefined;
+    bookCoverThumbnailResUrl?: string | undefined;
     bookCoverLowResUrl?: string | undefined;
+    bookCoverMediumResUrl?: string | undefined;
+    bookCoverUrl?: string | undefined;
     coverColour?: string | undefined;
 
     constructor(data?: IBookModel) {
@@ -607,8 +609,10 @@ export class BookModel implements IBookModel {
             this.rating = _data["rating"];
             this.totalReviews = _data["totalReviews"];
             this.bookCoverHighResUrl = _data["bookCoverHighResUrl"];
-            this.bookCoverUrl = _data["bookCoverUrl"];
+            this.bookCoverThumbnailResUrl = _data["bookCoverThumbnailResUrl"];
             this.bookCoverLowResUrl = _data["bookCoverLowResUrl"];
+            this.bookCoverMediumResUrl = _data["bookCoverMediumResUrl"];
+            this.bookCoverUrl = _data["bookCoverUrl"];
             this.coverColour = _data["coverColour"];
         }
     }
@@ -642,8 +646,10 @@ export class BookModel implements IBookModel {
         data["rating"] = this.rating;
         data["totalReviews"] = this.totalReviews;
         data["bookCoverHighResUrl"] = this.bookCoverHighResUrl;
-        data["bookCoverUrl"] = this.bookCoverUrl;
+        data["bookCoverThumbnailResUrl"] = this.bookCoverThumbnailResUrl;
         data["bookCoverLowResUrl"] = this.bookCoverLowResUrl;
+        data["bookCoverMediumResUrl"] = this.bookCoverMediumResUrl;
+        data["bookCoverUrl"] = this.bookCoverUrl;
         data["coverColour"] = this.coverColour;
         return data; 
     }
@@ -662,8 +668,10 @@ export interface IBookModel {
     rating?: number | undefined;
     totalReviews?: number | undefined;
     bookCoverHighResUrl?: string | undefined;
-    bookCoverUrl?: string | undefined;
+    bookCoverThumbnailResUrl?: string | undefined;
     bookCoverLowResUrl?: string | undefined;
+    bookCoverMediumResUrl?: string | undefined;
+    bookCoverUrl?: string | undefined;
     coverColour?: string | undefined;
 }
 
@@ -995,7 +1003,9 @@ export class PublicBookModel implements IPublicBookModel {
     title?: string | undefined;
     authors?: AuthorModel[] | undefined;
     genres?: GenreModel[] | undefined;
-    bookCoverLowRes?: string | undefined;
+    bookCoverThumbnail?: string | undefined;
+    bookCoverLow?: string | undefined;
+    bookCoverMedium?: string | undefined;
     bookCoverBgColour?: string | undefined;
     goodReadsLink?: string | undefined;
 
@@ -1021,7 +1031,9 @@ export class PublicBookModel implements IPublicBookModel {
                 for (let item of _data["genres"])
                     this.genres!.push(GenreModel.fromJS(item));
             }
-            this.bookCoverLowRes = _data["bookCoverLowRes"];
+            this.bookCoverThumbnail = _data["bookCoverThumbnail"];
+            this.bookCoverLow = _data["bookCoverLow"];
+            this.bookCoverMedium = _data["bookCoverMedium"];
             this.bookCoverBgColour = _data["bookCoverBgColour"];
             this.goodReadsLink = _data["goodReadsLink"];
         }
@@ -1047,7 +1059,9 @@ export class PublicBookModel implements IPublicBookModel {
             for (let item of this.genres)
                 data["genres"].push(item.toJSON());
         }
-        data["bookCoverLowRes"] = this.bookCoverLowRes;
+        data["bookCoverThumbnail"] = this.bookCoverThumbnail;
+        data["bookCoverLow"] = this.bookCoverLow;
+        data["bookCoverMedium"] = this.bookCoverMedium;
         data["bookCoverBgColour"] = this.bookCoverBgColour;
         data["goodReadsLink"] = this.goodReadsLink;
         return data; 
@@ -1058,7 +1072,9 @@ export interface IPublicBookModel {
     title?: string | undefined;
     authors?: AuthorModel[] | undefined;
     genres?: GenreModel[] | undefined;
-    bookCoverLowRes?: string | undefined;
+    bookCoverThumbnail?: string | undefined;
+    bookCoverLow?: string | undefined;
+    bookCoverMedium?: string | undefined;
     bookCoverBgColour?: string | undefined;
     goodReadsLink?: string | undefined;
 }
@@ -1159,8 +1175,10 @@ export class UpdateBookRequestModel implements IUpdateBookRequestModel {
     goodreadsLink?: string | undefined;
     rating?: number | undefined;
     totalReviews?: number | undefined;
-    bookCoverHighResUrl?: string | undefined;
+    bookCoverThumbnail?: string | undefined;
     bookCoverLowResUrl?: string | undefined;
+    bookCoverMediumResUrl?: string | undefined;
+    bookCoverHighResUrl?: string | undefined;
     bookCoverUrl?: string | undefined;
     coverColour?: string | undefined;
 
@@ -1194,8 +1212,10 @@ export class UpdateBookRequestModel implements IUpdateBookRequestModel {
             this.goodreadsLink = _data["goodreadsLink"];
             this.rating = _data["rating"];
             this.totalReviews = _data["totalReviews"];
-            this.bookCoverHighResUrl = _data["bookCoverHighResUrl"];
+            this.bookCoverThumbnail = _data["bookCoverThumbnail"];
             this.bookCoverLowResUrl = _data["bookCoverLowResUrl"];
+            this.bookCoverMediumResUrl = _data["bookCoverMediumResUrl"];
+            this.bookCoverHighResUrl = _data["bookCoverHighResUrl"];
             this.bookCoverUrl = _data["bookCoverUrl"];
             this.coverColour = _data["coverColour"];
         }
@@ -1229,8 +1249,10 @@ export class UpdateBookRequestModel implements IUpdateBookRequestModel {
         data["goodreadsLink"] = this.goodreadsLink;
         data["rating"] = this.rating;
         data["totalReviews"] = this.totalReviews;
-        data["bookCoverHighResUrl"] = this.bookCoverHighResUrl;
+        data["bookCoverThumbnail"] = this.bookCoverThumbnail;
         data["bookCoverLowResUrl"] = this.bookCoverLowResUrl;
+        data["bookCoverMediumResUrl"] = this.bookCoverMediumResUrl;
+        data["bookCoverHighResUrl"] = this.bookCoverHighResUrl;
         data["bookCoverUrl"] = this.bookCoverUrl;
         data["coverColour"] = this.coverColour;
         return data; 
@@ -1249,8 +1271,10 @@ export interface IUpdateBookRequestModel {
     goodreadsLink?: string | undefined;
     rating?: number | undefined;
     totalReviews?: number | undefined;
-    bookCoverHighResUrl?: string | undefined;
+    bookCoverThumbnail?: string | undefined;
     bookCoverLowResUrl?: string | undefined;
+    bookCoverMediumResUrl?: string | undefined;
+    bookCoverHighResUrl?: string | undefined;
     bookCoverUrl?: string | undefined;
     coverColour?: string | undefined;
 }

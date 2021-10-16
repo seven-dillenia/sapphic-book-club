@@ -23,7 +23,7 @@ export class CardComponent implements OnInit {
 
   // Get grabbing the image from imgur, and we will show skeleton image until we got the actual image
   getCover() {
-    this.coverService.getCover(this.book.bookCoverLowRes).subscribe(async (data) => {
+    this.coverService.getCover(this.book.bookCoverLow).subscribe(async (data) => {
       let unsafeImageUrl = URL.createObjectURL(data);
       this.coverImageBlobUrl = this.sanitizer.bypassSecurityTrustUrl(unsafeImageUrl);
       this.isLoadingImage = false;
