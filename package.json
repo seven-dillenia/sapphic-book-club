@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --poll=2000",
     "build": "ng build",
     "prod": "ng build --prod --output-path=../public-build/docs",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "genapiv2": "sudo npx nswag openapi2tsclient /Template:Angular /InjectionTokenType:InjectionToken /GenerateOptionalParameters:true /Input:https://localhost:5001/swagger/v1/swagger.json /Output:src/app/shared/services/api.v1.service.ts"
+  },
+  "author": {
+    "name": "Seven Dillenia (Lee)",
+    "email": "sevendillenia@gmail.com"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +28,7 @@
     "@angular/platform-browser-dynamic": "~10.0.2",
     "@angular/router": "~10.0.2",
     "animate.css": "^4.1.1",
+    "ngx-device-detector": "^2.1.1",
     "ngx-skeleton-loader": "^4.0.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
