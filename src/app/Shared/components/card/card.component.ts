@@ -17,6 +17,7 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     this.authorNames = this.book.authors?.map((a) => a.authorName)?.join(", ");
+    this.getBookCoverByDevice();
   }
 
   getBookCoverByDevice() {
@@ -33,5 +34,7 @@ export class CardComponent implements OnInit {
         this.coverUrl = this.book.bookCoverLow;
         break;
     }
+
+
   }
 }
