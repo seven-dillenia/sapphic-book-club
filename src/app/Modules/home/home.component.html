@@ -2,15 +2,23 @@
   <!-- <div class="books__header">Books</div> -->
   <div class="books__list">
     <ng-container *ngIf="!isLoading; else skeletonTemplate">
-      <book-card *ngFor="let book of books" [book]="book"></book-card>
+      <book-card *ngFor="let book of books" [book]="book" [deviceType]="deviceType"></book-card>
     </ng-container>
     <ng-template #skeletonTemplate>
-      <sbc-skeleton *ngFor="let i of skeletonColours" [skeletonColour]="i"></sbc-skeleton>
+      <sbc-skeleton
+        *ngFor="let i of skeletonColours"
+        [skeletonColour]="i"
+      ></sbc-skeleton>
     </ng-template>
   </div>
   <div class="wolf-spacing"></div>
   <div class="books__reload">
-    <sbc-button text="More Books" type="primary" (onClick)="getMoreBooks()" [isLoading]="isReloadBtnLoading"></sbc-button>
+    <sbc-button
+      text="More Books"
+      type="primary"
+      (onClick)="getMoreBooks()"
+      [isLoading]="isReloadBtnLoading"
+    ></sbc-button>
   </div>
   <div class="cat-spacing"></div>
 </div>

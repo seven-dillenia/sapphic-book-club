@@ -60,6 +60,7 @@
 }
 
 .book-img {
+  @include skeleton-bg(#e3e3e3);
   object-fit: fill;
   box-shadow: 5px 6px 7px 0px #0000007a;
   -webkit-backface-visibility: hidden;
@@ -80,13 +81,6 @@
   transition: all 0.3s;
 }
 
-.skeleton-img {
-  @include skeleton-bg(#e3e3e3);
-  width: 100%;
-  height:0;         // set the ratio for users who are on mobile or safari
-  padding-top:150%; // set the ratio for users who are on mobile or safari
-  aspect-ratio: 2/3;
-}
 a {
   color: black;
 }

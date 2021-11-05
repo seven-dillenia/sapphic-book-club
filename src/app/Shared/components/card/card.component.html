@@ -1,12 +1,13 @@
-<a target="_blank" href="https://www.goodreads.com/{{book.goodReadsLink}}" class="card">
+<a
+  target="_blank"
+  href="https://www.goodreads.com/{{ book.goodReadsLink }}"
+  class="card"
+>
   <div
     class="card__image"
     [ngStyle]="{ backgroundColor: book.bookCoverBgColour }"
   >
-    <div *ngIf="isLoadingImage" class="book-imag skeleton-img"></div>
-    <img *ngIf="!isLoadingImage" class="book-img" [src]="coverImageBlobUrl" />
-    <!-- <img class="book-img" [src]="book.bookCoverLowRes" loading="lazy" /> -->
-
+    <img class="book-img" [src]="coverUrl" loading="lazy" alt="{{ book.title }}" />
   </div>
   <div class="card__text">
     <div class="card__text__title">{{ book.title }}</div>

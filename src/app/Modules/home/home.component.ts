@@ -4,9 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { PublicBookModel } from 'src/app/shared/services/api.v1.service';
 import { SeoService } from 'src/app/shared/services/seo.service';
-import { TypeUtil } from 'src/app/shared/utils/type-utils';
 import { BooksService } from '../../shared/services/books.service';
-import { NoticeDialog } from './partial/notice-dialog/noticeDialog.component';
+import { DeviceDetectorService, DeviceType } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-home',
@@ -48,12 +47,17 @@ export class HomeComponent implements OnInit {
   public skeletonColours: string[] = [];
   public isReloadBtnLoading: boolean = false;
   public isError: boolean = false;
+  public deviceType: DeviceType;
 
   constructor(
     private seoService: SeoService,
     private route: ActivatedRoute,
     private bookService: BooksService,
-    private snackbar: MatSnackBar) { }
+    private deviceService: DeviceDetectorService,
+    private snackbar: MatSnackBar) {
+      const deviceInfo  = this.deviceService.getDeviceInfo();
+      this.deviceType = deviceInfo.deviceType as DeviceType;
+    }
 
   ngOnInit(): void {
     const { meta } = this.route.snapshot.data;
